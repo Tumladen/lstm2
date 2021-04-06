@@ -4,4 +4,4 @@ sklearn
 streamlit
 datapackage
 pandas-datareader
-tensorflow-gpu
+tensorflow-cpu
