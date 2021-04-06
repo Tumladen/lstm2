@@ -1,7 +1,7 @@
 numpy
 pandas
 sklearn
-streamlit==0.60.0
+streamlit
 
 
 
