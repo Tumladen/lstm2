@@ -26,4 +26,30 @@ for resource in resources:
         data = pd.read_csv(resource.descriptor['path'])
 st.write(data)
 
+#User Company Choice
+companies  = data["Symbol"]
+
+# User Inputs
+def get_userInput():
+    st.sidebar.write("Uses selected range as a training set")
+    trained_date = st.sidebar.slider("Training Range", 1, 100, 60)
+    st.sidebar.write("Tries to calculate the future values based on selected range")
+    predict_day = st.sidebar.slider("Prediction Range", 1, 60, 15)
+    st.sidebar.write("Trains the model based on the selected range ")
+    epoch_num = st.sidebar.slider("Number of Epochs", 1, 100, 10)
+    st.sidebar.warning("Choosing higher numbers on epochs will result in longer training times. Moreover, training your model for longer periods of time might hinder the generalization of new data")
+    company  = st.sidebar.selectbox("Which company you would like to choose?", companies)
+
+
+    # Store user inputs into a variable
+    user_data = {"trained_date": trained_date, "predict_day": predict_day,  "num_epoch": epoch_num, "company": company}
+
+    # Transfrom it into a data frame
+    features = pd.DataFrame(user_data, index=[0])
+    return features
+
+
+# Store user input into a variable
+user_input = get_userInput()
+
 
