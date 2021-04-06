@@ -3,6 +3,7 @@ import streamlit as st
 import datetime
 import pandas as pd
 import datapackage
+import pandas_datareader as web
 
 st.write("This program will never be able to predict the future values exactly. Although, It might give an intuition towards the current and potential future trend of a specific stock.")
 
