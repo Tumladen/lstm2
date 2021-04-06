@@ -40,9 +40,9 @@ def get_userInput():
     st.sidebar.write("Uses selected range as a training set")
     trained_date = st.sidebar.slider("Training Range", 1, 100, 60)
     st.sidebar.write("Tries to calculate the future values based on selected range")
-    predict_day = st.sidebar.slider("Prediction Range", 1, 60, 15)
+    predict_day = st.sidebar.slider("Prediction Range", 1, 60, 10)
     st.sidebar.write("Trains the model based on the selected range ")
-    epoch_num = st.sidebar.slider("Number of Epochs", 1, 100, 10)
+    epoch_num = st.sidebar.slider("Number of Epochs", 1, 100, 5)
     st.sidebar.warning("Choosing higher numbers on epochs will result in longer training times. Moreover, training your model for longer periods of time might hinder the generalization of new data")
     company  = st.sidebar.selectbox("Which company you would like to choose?", companies)
 
