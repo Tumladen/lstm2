@@ -4,6 +4,7 @@ import datetime
 import pandas as pd
 import datapackage
 import pandas_datareader as web
+from sklearn.preprocessing import MinMaxScaler
 
 st.write("This program will never be able to predict the future values exactly. Although, It might give an intuition towards the current and potential future trend of a specific stock.")
 
@@ -63,4 +64,12 @@ df1 = df.reset_index()["Close"]
 # visualize
 st.line_chart(df.Close)
 st.line_chart(df.Volume)
+
+#PREDICTION
+
+# Min - Max scaler
+
+scaler = MinMaxScaler(feature_range=(0, 1))
+
+df1 = scaler.fit_transform((np.array(df1).reshape(-1, 1)))
 
