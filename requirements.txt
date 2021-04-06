@@ -3,5 +3,5 @@ pandas
 sklearn
 streamlit
 datapackage
-
+pandas-datareader
 
