@@ -113,4 +113,41 @@ model.compile(loss='mean_squared_error',optimizer='adam')
 
 model.fit(X_train,y_train,validation_data=(X_test,y_test),epochs=int(user_input["num_epoch"]),batch_size=64,verbose=1)
 
+train_predict=model.predict(X_train)
+test_predict=model.predict(X_test)
+
+
+last_day = 100
+x_input_range = len(test_data) - last_day
+x_input = test_data[x_input_range:].reshape(1,-1)
+
+temp_input = list(x_input)
+temp_input = temp_input[0].tolist()
+
+
+lst_output = []
+n_steps = last_day
+i = 0
+predict_day = int(user_input["predict_day"])
+
+while(i < predict_day):
+
+    if(len(temp_input) > last_day):
+        x_input = np.array((temp_input[1:]))
+        x_input = x_input.reshape(1, -1)
+        x_input = x_input.reshape((1, n_steps, 1))
+        yhat = model.predict(x_input, verbose=0)
+        temp_input.extend(yhat[0].tolist())
+        temp_input = temp_input[1:]
+        lst_output.extend(yhat.tolist())
+        i = i + 1
+    else:
+        x_input = x_input.reshape((1, n_steps, 1))
+        yhat = model.predict(x_input, verbose=0)
+        temp_input.extend(yhat[0].tolist())
+        lst_output.extend(yhat.tolist())
+        i = i + 1
+st.table(scaler.inverse_transform(lst_output))
+
+
 
