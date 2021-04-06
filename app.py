@@ -5,6 +5,10 @@ import pandas as pd
 import datapackage
 import pandas_datareader as web
 from sklearn.preprocessing import MinMaxScaler
+import numpy as np
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import LSTM
+from tensorflow.keras.models import Sequential
 
 st.write("This program will never be able to predict the future values exactly. Although, It might give an intuition towards the current and potential future trend of a specific stock.")
 
