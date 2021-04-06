@@ -52,4 +52,14 @@ def get_userInput():
 # Store user input into a variable
 user_input = get_userInput()
 
+# Data Input
+company  = user_input["company"]
+st.write(company[0])
+df = web.DataReader(company[0], data_source="yahoo", start=start, end=end)
+df1 = df.reset_index()["Close"]
+
+
+# visualize
+st.line_chart(df.Close)
+st.line_chart(df.Volume)
 
