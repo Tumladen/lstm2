@@ -10,6 +10,6 @@ st.title("Date range")
 min_date = datetime.datetime(2015, 1, 1)
 max_date = datetime.date(2020, 1, 1)
 
-a_date = st.date_input("Pick a date", (min_date, max_date))
+date = st.sidebar.date_input('start date', datetime.date(2011,1,1))
 
 
